@@ -12,27 +12,32 @@ public class MoreJava8 {
 	public static void main(String[] args) {
 		Person2 person1 = new Person2("Jagannath", 33, "deb@gmail.com");
 		Person2 person2 = new Person2("Debipriya", 30, "jagannath8715@gmail.com");
+		Person2 person6 = new Person2("Narayan");
 
 		Person2 person3 = new Person2("Ram", 17, "ram@gmail.com");
 		Person2 person4 = new Person2("Shyam", 16, "shyam@gmail.com");
+		Person2 person5 = new Person2("Radha");
 
 		List<Person2> personList = new ArrayList<Person2>();
 		personList.add(person1);
 		personList.add(person2);
 		personList.add(person3);
 		personList.add(person4);
+		personList.add(person5);
+		personList.add(person6);
 
-		List<InetAddress> inetaddlist = personList.stream().map(person -> person.getAddress()).map(InetAddress::new)
+		List<InetAddress> inetaddlist = personList.stream().map(person -> person.getAddress())
+							.filter(address -> address != null).map(InetAddress::new)
 							.collect(Collectors.toList());
 
 		System.out.println(inetaddlist);
 
-		personList.stream().collect(groupingBy(person -> person.age > 18 ? "ADULT" : "UNDERAGE"))
+		personList.stream().filter(p -> p.age != 0).collect(groupingBy(person -> person.age > 18 ? "ADULT" : "UNDERAGE"))
 						.forEach((a, b) -> System.out.println(a + "-" + b));
 
-		Map<Object, List<InetAddress>> ageGroup = personList.stream()
+		Map<Object, List<InetAddress>> ageGroup = personList.stream().filter(p -> p.age != 0)
 				.collect(groupingBy(person -> person.age > 18 ? "ADULT" : "UNDERAGE",
-				mapping(p -> new InetAddress(p.getAddress()), toList())
+				 mapping(p -> new InetAddress(p.getAddress()), toList())
 				));
 
 
