@@ -6,7 +6,17 @@ public class Order {
 
     private PaymentOption paymentOption;
 
-    public PaymentOption getPaymentOption() {
+    private Item item;
+
+    public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	public PaymentOption getPaymentOption() {
 		return paymentOption;
 	}
 
@@ -32,7 +42,7 @@ public class Order {
 	}
 
 	public String placeOrder(){
-        System.out.println("order placed successfully & order no is : " + orderNumber);
+        System.out.println("order placed successfully");
         System.out.println("order placed through : " + this.getPaymentOption());
         return orderNumber;
     }

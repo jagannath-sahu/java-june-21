@@ -19,6 +19,8 @@ public class Test {
         UserInformation userInformation = new UserInformation("vinoth", "selvaraj", "udemy@gmail.com");
 
         Order order = new Order("12345");
+        Item item = new Item("camera", "500$");
+        order.setItem(item);
         PaymentScreen paymentScreen = new PaymentScreen();
         paymentScreen.setUserInformation(userInformation);
         paymentScreen.setOrder(order);
@@ -28,9 +30,8 @@ public class Test {
 			paymentScreen.pay(cc);
 			String orderNumber = paymentScreen.getOrder().placeOrder();
 
-	        System.out.println(
-	                "Order Number : " + orderNumber
-	        );
+			System.out.println("Order Number : " + orderNumber);
+	        System.out.println("Ordered Item : " + order.getItem());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,6 +40,8 @@ public class Test {
         System.out.println();
 
         Order order1 = new Order("45986");
+        Item item1 = new Item("book", "40$");
+        order1.setItem(item1);
         PaymentScreen paymentScreen1 = new PaymentScreen();
         paymentScreen1.setUserInformation(userInformation);
         paymentScreen1.setOrder(order1);
@@ -48,9 +51,8 @@ public class Test {
         	paymentScreen1.pay(nb);
 			String orderNumber = paymentScreen1.getOrder().placeOrder();
 
-	        System.out.println(
-	                "Order Number : " + orderNumber
-	        );
+			System.out.println("Order Number : " + orderNumber);
+	        System.out.println("Ordered Item : " + order1.getItem());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,6 +61,8 @@ public class Test {
         System.out.println();
 
         Order order2 = new Order("37788");
+        Item item2 = new Item("laptop", "400$");
+        order2.setItem(item2);
         PaymentScreen paymentScreen2 = new PaymentScreen();
         paymentScreen2.setUserInformation(userInformation);
         paymentScreen2.setOrder(order2);
@@ -68,9 +72,8 @@ public class Test {
         	paymentScreen2.pay(cc);
 			String orderNumber = paymentScreen2.getOrder().placeOrder();
 
-	        System.out.println(
-	                "Order Number : " + orderNumber
-	        );
+	        System.out.println("Order Number : " + orderNumber);
+	        System.out.println("Ordered Item : " + order2.getItem());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
