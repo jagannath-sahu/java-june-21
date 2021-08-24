@@ -44,6 +44,6 @@ public class PaymentScreen {
 
 	public void pay(Map<String, String> paymentDetails) throws Exception{
         this.paymentOption.enterPaymentInformation(paymentDetails);
-        this.order.setPaymentScreen(this);
+        this.order.setPaymentOption(this.paymentOption);
     }
 }

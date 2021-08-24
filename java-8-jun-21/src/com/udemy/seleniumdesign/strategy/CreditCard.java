@@ -36,7 +36,6 @@ public class CreditCard implements PaymentOption {
 
 	public CreditCard() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public CreditCard(String cc, String year, String cvv) {

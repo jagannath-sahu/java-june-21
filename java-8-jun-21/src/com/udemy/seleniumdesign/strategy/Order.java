@@ -4,14 +4,14 @@ public class Order {
 
     private String orderNumber;
 
-    private PaymentScreen paymentScreen;
+    private PaymentOption paymentOption;
 
-    public PaymentScreen getPaymentScreen() {
-		return paymentScreen;
+    public PaymentOption getPaymentOption() {
+		return paymentOption;
 	}
 
-	public void setPaymentScreen(PaymentScreen paymentScreen) {
-		this.paymentScreen = paymentScreen;
+	public void setPaymentOption(PaymentOption paymentOption) {
+		this.paymentOption = paymentOption;
 	}
 
 	public String getOrderNumber() {
@@ -32,8 +32,8 @@ public class Order {
 	}
 
 	public String placeOrder(){
-        System.out.println("order placed & order no is : " + orderNumber);
-        System.out.println("order placed through : " + this.paymentScreen.getPaymentOption());
+        System.out.println("order placed successfully & order no is : " + orderNumber);
+        System.out.println("order placed through : " + this.getPaymentOption());
         return orderNumber;
     }
 

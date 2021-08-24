@@ -41,7 +41,6 @@ public class UserInformation {
 
 	public UserInformation() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void enterDetails(String fn, String ln, String email){

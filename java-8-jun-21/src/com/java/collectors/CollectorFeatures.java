@@ -16,7 +16,6 @@ public class CollectorFeatures {
         System.out.println("Dishes grouped by type: " + groupDishesByType());
         System.out.println("Most caloric Dish by type: " + mostCaloricDishByType());
         Map<Type, Optional<Dish>> dishMap= mostCaloricDishByType1();
-        //dishMap.replaceAll((key, oldValue) -> Optional.empty());
         Map<Type, Dish> dishMap1 = dishMap.entrySet().stream()
         		.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().get()));
         System.out.println("Most caloric Dish by type: " + dishMap1);
