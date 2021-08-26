@@ -9,8 +9,6 @@ class TextProcessor {
 
 	List<String> items;
 
-	Format format;
-
 	public TextProcessor(Format format) {
 		setOutputFormat(format);
 	}
