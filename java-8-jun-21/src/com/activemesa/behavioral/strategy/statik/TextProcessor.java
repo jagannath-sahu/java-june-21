@@ -2,48 +2,44 @@ package com.activemesa.behavioral.strategy.statik;
 
 import java.util.List;
 
-class TextProcessor
-{
-  private StringBuilder sb = new StringBuilder();
+class TextProcessor {
+	private StringBuilder sb = new StringBuilder();
 
-  private ListStrategy listStrategy;
+	private ListStrategy listStrategy;
 
-  List<String> items;
+	List<String> items;
 
-  Format format;
+	Format format;
 
-  public void appendItems(List<String> items) {
-	  this.items = items;
-  }
+	public TextProcessor(Format format) {
+		setOutputFormat(format);
+	}
 
-  public void process(Format format) {
-	  switch(format) {
+	public void setOutputFormat(Format format) {
+		switch (format) {
+		case HTML:
+			listStrategy = new HtmlListStrategy();
+			break;
 
-	  	case HTML:
-	  		listStrategy = new HtmlListStrategy();
-	  		listStrategy.start(sb);
-	  	    for (String item : items)
-	  	      listStrategy.addListItem(sb, item);
-	  	    listStrategy.end(sb);
-	  	    break;
+		case MARKDOWN:
+			listStrategy = new MarkdownListStrategy();
+			break;
+		}
+	}
 
-	  	case List:
-	  		listStrategy = new MarkdownListStrategy();
-	  		for (String item : items)
-	  			listStrategy.addListItem(sb, item);
-	  		break;
+	public void appendList(List<String> items) {
+		listStrategy.start(sb);
+		for (String item : items)
+			listStrategy.addListItem(sb, item);
+		listStrategy.end(sb);
+	}
 
-	  }
-  }
+	public void clear() {
+		sb.setLength(0);
+	}
 
-  public void clear()
-  {
-    sb.setLength(0);
-  }
-
-  @Override
-  public String toString()
-  {
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		return sb.toString();
+	}
 }
