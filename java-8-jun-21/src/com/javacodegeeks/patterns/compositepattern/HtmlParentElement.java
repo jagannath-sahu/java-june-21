@@ -9,7 +9,7 @@ public class HtmlParentElement extends HtmlTag {
 	private String tagName;
 	private String startTag;
 	private String endTag;
-	private List<HtmlTag>childrenTag;
+	private List<HtmlTag>childrenTag; //this is the main important line
 
 	public HtmlParentElement(String tagName){
 		this.tagName = tagName;
