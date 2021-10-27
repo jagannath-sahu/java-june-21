@@ -63,7 +63,6 @@ public class HtmlParentElement extends HtmlTag {
 			tag.generateHtml();
 		}
 		System.out.println(endTag);
-
 	}
 
 	@Override

@@ -12,7 +12,6 @@ public class RoboticOff implements RoboticState{
 	public void walk() {
 		robot.setRoboticState(robot.getRoboticOn());
 		System.out.println("Robot is Walking...");
-		System.out.println("current state : " + robot.getState());
 	}
 
 	@Override
