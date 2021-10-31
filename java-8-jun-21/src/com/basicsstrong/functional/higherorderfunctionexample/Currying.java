@@ -15,7 +15,5 @@ public class Currying {
 		Integer sum = fun3.apply(3);
 
 		System.out.println(sum);
-
 	}
-
 }
